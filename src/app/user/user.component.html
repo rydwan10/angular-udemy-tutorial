@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <input [(ngModel)]="username" type="text" class="form-control" />
+      <h5>{{ username }}</h5>
+      <button
+        (click)="username = ''"
+        [disabled]="username === ''"
+        class="btn btn-primary mt-2"
+      >
+        Reset Username
+      </button>
+    </div>
+  </div>
+</div>
