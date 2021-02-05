@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
   toggleParagraph: boolean = false;
-  arrClick: number[] = [];
+  arrClick: Date[] = [];
   constructor() {}
 
   ngOnInit(): void {}
 
   onToggleParagraph(): void {
     this.toggleParagraph = !this.toggleParagraph;
-    this.arrClick.push(this.arrClick.length + 1);
+    this.arrClick.push(new Date());
   }
 }

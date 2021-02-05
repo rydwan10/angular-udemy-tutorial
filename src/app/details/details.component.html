@@ -7,10 +7,10 @@
       <p *ngIf="toggleParagraph">The Password is 'secret'</p>
       <ul class="list-group">
         <li
-          [ngStyle]="{ backgroundColor: item >= 5 ? 'blue' : 'transparent' }"
+          *ngFor="let item of arrClick; let i = index"
+          [ngStyle]="{ backgroundColor: i >= 5 ? 'blue' : 'transparent' }"
           class="list-group-item"
-          *ngFor="let item of arrClick"
-          [ngClass]="{ 'white-text': item >= 5 }"
+          [ngClass]="{ 'white-text': i >= 5 }"
         >
           {{ item }}
         </li>
