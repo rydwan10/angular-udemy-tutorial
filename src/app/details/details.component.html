@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <button (click)="onToggleParagraph()" class="btn btn-primary">
+        Display Details
+      </button>
+      <p *ngIf="toggleParagraph">The Password is 'secret'</p>
+      <ul class="list-group">
+        <li
+          [ngStyle]="{ backgroundColor: item >= 5 ? 'blue' : 'transparent' }"
+          class="list-group-item"
+          *ngFor="let item of arrClick"
+          [ngClass]="{ 'white-text': item >= 5 }"
+        >
+          {{ item }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
