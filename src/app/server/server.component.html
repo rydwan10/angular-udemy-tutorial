@@ -1,1 +1,11 @@
-<p>I'm Server Component</p>
+<p
+  [ngStyle]="{
+    backgroundColor: getColor(),
+    padding: '10px',
+    borderRadius: '6px',
+    marginTop: '1rem'
+  }"
+  [ngClass]="{ online: serverStatus === 'online' }"
+>
+  This server with id: {{ serverId }} and it status is : {{ serverStatus }}
+</p>
