@@ -1,8 +1,15 @@
-<div class="container">
-  <div class="row">
+<div class="container mt-5">
+  <app-cockpit
+    (serverCreated)="onServerAdded($event)"
+    (blueprintCreated)="onBlueprintAdded($event)"
+  ></app-cockpit>
+  <hr />
+  <div class="row mt-3">
     <div class="col">
-      <h3>I'm in the AppComponent</h3>
-      <hr />
+      <app-server-element
+        *ngFor="let serverElement of serverElements"
+        [srvElement]="serverElement"
+      ></app-server-element>
     </div>
   </div>
 </div>
