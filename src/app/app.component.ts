@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'myapp';
+  oddNumbers: number[] = [1, 3, 5];
+  evenNumbers: number[] = [2, 4];
+  onlyOdd: boolean = false;
 }
