@@ -1,8 +1,38 @@
-<div class="container">
+<div class="container mt-5">
+  <h4 class="text-primary text-center">{{ title }}</h4>
   <div class="row">
     <div class="col">
-      <h3>I'm in the AppComponent</h3>
+      <app-add-todo (addTodo)="onAddTodo($event)"></app-add-todo>
+      <div class="">
+        <div class="row align-items-center" *ngIf="todos.length > 0">
+          <div class="col">
+            <h5 class="text-primary">
+              You have {{ todos.length }} todo<span *ngIf="todos.length > 1"
+                >s</span
+              >
+              left
+            </h5>
+          </div>
+          <div class="col">
+            <button
+              (click)="onClearAllTodo()"
+              class="btn btn-danger float-right"
+            >
+              Clear All
+            </button>
+          </div>
+        </div>
+      </div>
       <hr />
+      <app-todo-list
+        *ngIf="todos"
+        (deleteTodo)="onDeleteTodo($event)"
+        [todoList]="todos"
+      >
+      </app-todo-list>
+      <h4 class="text-center" *ngIf="todos.length <= 0">
+        There is no Todos...
+      </h4>
     </div>
   </div>
 </div>

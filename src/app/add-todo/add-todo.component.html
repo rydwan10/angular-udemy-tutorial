@@ -1,0 +1,19 @@
+<form (submit)="onAddTodo(); $event.preventDefault()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      autofocus
+      [(ngModel)]="title"
+      type="text"
+      name="title"
+      class="form-control"
+    />
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <button class="btn btn-primary mt-3 btn-block" type="submit">
+          Add Todo
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

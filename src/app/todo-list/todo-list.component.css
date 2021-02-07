@@ -1,0 +1,6 @@
+.todo-item:hover {
+  background-color: rgb(248, 75, 75);
+  transition: all ease-out 0.3s;
+  color: white;
+  cursor: pointer;
+}
