@@ -1,8 +1,43 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h3>I'm in the AppComponent</h3>
-      <hr />
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/"
+            role="tab"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/servers"
+            role="tab"
+            >Servers</a
+          >
+        </li>
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['/users']"
+            role="tab"
+            >Users</a
+          >
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="row">
+          <div class="col">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
