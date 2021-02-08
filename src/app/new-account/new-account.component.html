@@ -1,0 +1,29 @@
+<div class="row mt-5">
+  <div class="col">
+    <form
+      (submit)="
+        $event.preventDefault();
+        onCreateAccount(inputAccountName.value, selectAccountStatus.value)
+      "
+    >
+      <div class="form-group">
+        <label for="name"><strong>Account Name</strong></label>
+        <input #inputAccountName name="name" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select
+          #selectAccountStatus
+          name="status"
+          id="status"
+          class="form-control"
+        >
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+          <option value="unknown">Unknown</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Account</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="row mb-4">
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        <h5>{{ account.name }}</h5>
+      </div>
+      <div class="card-body">
+        <p>This account is {{ account.status }}</p>
+        <button class="btn btn-primary mr-3" (click)="onSetTo('active')">
+          Set to 'active'
+        </button>
+        <button class="btn btn-primary mr-3" (click)="onSetTo('inactive')">
+          Set to 'inactive'
+        </button>
+        <button class="btn btn-primary mr-3" (click)="onSetTo('unknown')">
+          Set to 'unknown'
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
