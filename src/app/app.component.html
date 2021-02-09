@@ -1,8 +1,45 @@
 <div class="container">
-  <div class="row">
+  <div class="row mt-3">
     <div class="col">
-      <h3>I'm in the AppComponent</h3>
-      <hr />
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div id="user-data">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              class="form-control"
+              ngModel
+              name="username"
+            />
+          </div>
+          <button class="btn btn-secondary">Suggest an Username</button>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              ngModel
+              name="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="secret">Secret Question</label>
+            <select
+              name="secret"
+              id="secret"
+              class="form-control"
+              ngModel
+              name="secret"
+            >
+              <option value="pet">Your first pet?</option>
+              <option value="teacher">Your first teacher?</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
