@@ -1,27 +1,30 @@
-<form (submit)="$event.preventDefault()">
-  <div class="form-group">
-    <label for="name">Server Name</label>
-    <input
-      [(ngModel)]="serverName"
-      name="name"
-      type="text"
-      class="form-control"
-    />
-  </div>
-  <div class="form-group">
-    <label for="status">Server Status</label>
-    <select
-      [(ngModel)]="serverStatus"
-      class="form-control"
-      name="status"
-      id="status"
-    >
-      <option value="online">Online</option>
-      <option value="offline">Offline</option>
-      <option value="unknown">Unknown</option>
-    </select>
-  </div>
-  <button (click)="onUpdateServer()" class="btn btn-primary" type="submit">
-    Edit Server
-  </button>
-</form>
+<h4 *ngIf="!allowEdit">You're not allowed to edit!</h4>
+<div *ngIf="allowEdit">
+  <form (submit)="$event.preventDefault()">
+    <div class="form-group">
+      <label for="name">Server Name</label>
+      <input
+        [(ngModel)]="serverName"
+        name="name"
+        type="text"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label for="status">Server Status</label>
+      <select
+        [(ngModel)]="serverStatus"
+        class="form-control"
+        name="status"
+        id="status"
+      >
+        <option value="online">Online</option>
+        <option value="offline">Offline</option>
+        <option value="unknown">Unknown</option>
+      </select>
+    </div>
+    <button (click)="onUpdateServer()" class="btn btn-primary" type="submit">
+      Edit Server
+    </button>
+  </form>
+</div>
