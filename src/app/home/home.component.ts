@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onLoadServers(id: number) {
+  onLoadServer(id: number) {
     // complex calculation here ...
     this.router.navigate(['/servers', id, 'edit'], {
       queryParams: { allowEdit: 1 },

@@ -1,4 +1,4 @@
-<p>servers works!</p>
+<!-- <p>servers works!</p>
 <button class="btn btn-primary" (click)="onReload()">Reload Page</button>
 <a
   [routerLink]="['/servers', 5, 'edit']"
@@ -6,4 +6,26 @@
   fragment="loading"
   class="btn btn-primary"
   >Edit Server id: 5</a
->
+> -->
+<div class="row mt-3">
+  <div class="col">
+    <div class="list-group">
+      <a
+        [routerLink]="['/servers', server.id]"
+        [queryParams]="{ allowEdit: 1 }"
+        fragment="loading"
+        class="text-decoration-none list-group-item"
+        *ngFor="let server of servers"
+      >
+        {{ server.name }}
+      </a>
+    </div>
+  </div>
+  <div class="col">
+    <!-- <button class="btn btn-primary" (click)="onReload()">Reload Page</button>
+    <app-edit-server></app-edit-server>
+    <hr />
+    <app-server></app-server> -->
+    <router-outlet></router-outlet>
+  </div>
+</div>
