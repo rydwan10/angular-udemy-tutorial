@@ -7,7 +7,7 @@
           *ngFor="let server of servers"
           [ngClass]="getStatusClasses(server)"
         >
-          <strong>{{ server.name | shorten }}</strong> |
+          <strong>{{ server.name | shorten: 15 }}</strong> |
           {{ server.instanceType | uppercase }} |
           {{ server.started | date: "fullDate" | uppercase }}
           <span class="badge badge-secondary">{{ server.status }}</span>
