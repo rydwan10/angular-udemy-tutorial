@@ -1,10 +1,17 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col">
-      <div class="list-group">
+      <input
+        placeholder="filter"
+        type="text"
+        class="form-control"
+        [(ngModel)]="filteredStatus"
+      />
+      <hr />
+      <ul class="list-group">
         <li
           class="list-group-item"
-          *ngFor="let server of servers"
+          *ngFor="let server of servers | filter: filteredStatus:'status'"
           [ngClass]="getStatusClasses(server)"
         >
           <strong>{{ server.name | shorten: 15 }}</strong> |
@@ -12,7 +19,7 @@
           {{ server.started | date: "fullDate" | uppercase }}
           <span class="badge badge-secondary">{{ server.status }}</span>
         </li>
-      </div>
+      </ul>
     </div>
   </div>
 </div>
