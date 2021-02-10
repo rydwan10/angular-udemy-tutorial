@@ -2,6 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'filter',
+  // force pipe to reload if something change BAD!
+  pure: false,
 })
 export class FilterPipe implements PipeTransform {
   transform(value: any, fitlerString: string, propName: string): any {
