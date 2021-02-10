@@ -14,7 +14,13 @@
               required
             />
           </div>
-          <button class="btn btn-secondary">Suggest an Username</button>
+          <button
+            class="btn btn-secondary"
+            (click)="suggestUsername()"
+            type="button"
+          >
+            Suggest an Username
+          </button>
           <div class="form-group">
             <label for="email">Email</label>
             <input
@@ -59,6 +65,18 @@
           ></textarea>
         </div>
         <p>Your Answer: {{ answer }}</p>
+        <div class="radio" *ngFor="let gender of genders">
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              ngModel
+              [value]="gender"
+              required
+            />
+            {{ gender }}
+          </label>
+        </div>
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
           Submit
         </button>
