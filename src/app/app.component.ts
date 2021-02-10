@@ -9,6 +9,8 @@ import { NgForm } from '@angular/forms';
 export class AppComponent {
   title = 'myapp';
   @ViewChild('f') signUpForm: NgForm;
+  defaultQuestion = 'pet';
+  answer = '';
 
   // onSubmit(form: NgForm) {
   //   console.log(form);

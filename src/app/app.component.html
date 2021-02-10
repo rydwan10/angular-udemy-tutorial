@@ -2,7 +2,7 @@
   <div class="row mt-3">
     <div class="col">
       <form (ngSubmit)="onSubmit()" #f="ngForm">
-        <div id="user-data">
+        <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
           <div class="form-group">
             <label for="username">Username</label>
             <input
@@ -33,23 +33,35 @@
               >Please input valid value!</span
             >
           </div>
-          <div class="form-group">
-            <label for="secret">Secret Question</label>
-            <select
-              name="secret"
-              id="secret"
-              class="form-control"
-              ngModel
-              name="secret"
-            >
-              <option value="pet">Your first pet?</option>
-              <option value="teacher">Your first teacher?</option>
-            </select>
-          </div>
-          <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
-            Submit
-          </button>
         </div>
+        <p *ngIf="!userData.valid && userData.touched">User data is invalid</p>
+
+        <div class="form-group">
+          <label for="secret">Secret Question</label>
+          <select
+            name="secret"
+            id="secret"
+            class="form-control"
+            [ngModel]="defaultQuestion"
+            name="secret"
+          >
+            <option value="pet">Your first pet?</option>
+            <option value="teacher">Your first teacher?</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            [(ngModel)]="answer"
+            name="questionAnswer"
+            id="questionAnswer"
+            cols="3"
+          ></textarea>
+        </div>
+        <p>Your Answer: {{ answer }}</p>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+          Submit
+        </button>
       </form>
     </div>
   </div>
