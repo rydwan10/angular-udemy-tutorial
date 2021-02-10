@@ -1,8 +1,18 @@
 <div class="container">
-  <div class="row">
+  <div class="row mt-5">
     <div class="col">
-      <h3>I'm in the AppComponent</h3>
-      <hr />
+      <div class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let server of servers"
+          [ngClass]="getStatusClasses(server)"
+        >
+          <strong>{{ server.name }}</strong> |
+          {{ server.instanceType | uppercase }} |
+          {{ server.started | date: "fullDate" }}
+          <span class="badge badge-secondary">{{ server.status }}</span>
+        </li>
+      </div>
     </div>
   </div>
 </div>
