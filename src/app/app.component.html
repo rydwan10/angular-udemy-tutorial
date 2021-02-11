@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center mt-4">
     <div class="col-8">
       <h3>Create a new post</h3>
       <hr />
-      <form (ngSubmit)="onCreatePost()">
+      <form #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
         <div class="form-group">
           <label for="title">Title</label>
           <input
@@ -11,27 +11,74 @@
             name="title"
             id="title"
             class="form-control"
-            #inputTitle
+            ngModel
+            required
           />
         </div>
         <div class="form-group">
           <label for="content">Content</label>
           <textarea
-            #inputContent
+            ngModel
             type="text"
             name="content"
             id="content"
             class="form-control"
             rows="4"
+            required
           ></textarea>
         </div>
-        <button class="btn btn-primary" type="submit">Send Post</button>
+        <button
+          [disabled]="!postForm.valid"
+          class="btn btn-primary"
+          type="submit"
+        >
+          Send Post
+        </button>
       </form>
       <div class="row mt-5">
         <div class="col">
-          <button type="button" class="btn btn-primary mr-2">Fetch Post</button>
+          <button
+            type="button"
+            class="btn btn-primary mr-2"
+            (click)="onFetchPosts()"
+          >
+            Fetch Posts
+          </button>
           |
-          <button type="button" class="btn btn-danger ml-2">Clear Post</button>
+          <button
+            [disabled]="loadedPosts.length < 1"
+            type="button"
+            class="btn btn-danger ml-2"
+            (click)="onClearPosts()"
+          >
+            Clear Post
+          </button>
+          <div class="row mt-2">
+            <div class="col">
+              <p *ngIf="loadedPosts.length < 1 && !isFetching">
+                No posts available...
+              </p>
+
+              <ul
+                *ngIf="loadedPosts.length >= 1 && !isFetching"
+                class="list-group"
+              >
+                <li class="list-group-item" *ngFor="let post of loadedPosts">
+                  <h4 class="text-primary">{{ post.title }}</h4>
+                  <p>{{ post.content }}</p>
+                </li>
+              </ul>
+
+              <p *ngIf="isFetching && !error">Loading ...</p>
+              <div class="alert alert-danger" *ngIf="error">
+                <h4>An error occurred!</h4>
+                <p>{{ error }}</p>
+                <button class="btn btn-danger" (click)="onHandleError()">
+                  Ok
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
